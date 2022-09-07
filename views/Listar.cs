@@ -22,7 +22,7 @@ namespace Store.views
 
         private void List_Load(object sender, EventArgs e)
         {
-            ctProduct.View(DataGriedView);
+            ctProduct.Read(DataGriedView);
         }
     }
 }

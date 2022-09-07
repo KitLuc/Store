@@ -41,10 +41,10 @@ namespace Store.views
                     dtoComponent.DescriptionClothing = textDescript.Text.Trim();
                     dtoComponent.Gender = boxGender.SelectedItem.ToString();
                     dtoComponent.Color = textColor.Text.Trim();
-                    dtoComponent.Size = Convert.ToChar(boxSize.SelectedItem);
-                    dtoComponent.Value = Convert.ToDouble(textPrice.Text.Trim());
+                    dtoComponent.Size = Convert.ToChar(boxSize.SelectedItem.ToString());
+                    dtoComponent.Value = textPrice.Text.Trim();
                     dtoComponent.Marca = textMarca.Text.Trim();
-                    ctProduct.Save(dtoComponent);
+                    ctProduct.Create(dtoComponent);
                 }
                 catch (Exception ex)
                 {
@@ -58,6 +58,8 @@ namespace Store.views
             textColor.Clear();
             textPrice.Clear();
             textMarca.Clear();
+            boxGender.SelectedIndex = 0;
+            boxSize.SelectedIndex = 0;
         }
 
         private bool AuthComponents() 
@@ -65,13 +67,10 @@ namespace Store.views
             return !(textId.Text.Trim() == "" || textName.Text.Trim() == "" || textDescript.Text.Trim() == "" || boxGender.SelectedItem.ToString() == "" || textColor.Text.Trim() == "" || boxSize.SelectedItem.ToString() == "" || textPrice.Text.Trim() == "" || textMarca.Text.Trim() == "");
         }
 
-        private void btn_delet_Click(object sender, EventArgs e)
-        {
-        }
 
-        private void btn_update_Click(object sender, EventArgs e)
-        {
-        }
+
+
+
 
         private void btn_create_Click(object sender, EventArgs e)
         {

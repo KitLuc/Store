@@ -254,6 +254,7 @@
             // 
             this.boxSize.DropDownWidth = 121;
             this.boxSize.Items.AddRange(new object[] {
+            "Seleccionar",
             "S",
             "M",
             "L",
@@ -276,6 +277,7 @@
             // 
             this.boxGender.DropDownWidth = 121;
             this.boxGender.Items.AddRange(new object[] {
+            "Seleccionar",
             "Maculino",
             "Femenino"});
             this.boxGender.Location = new System.Drawing.Point(438, 66);

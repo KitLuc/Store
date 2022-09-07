@@ -13,7 +13,7 @@ namespace Store.Controller
         
         daoCRUD _DaoProducts = new daoCRUD();
 
-        public String Save(Components Save)
+        public String Create(Components Save)
         {
             try
             {
@@ -25,6 +25,7 @@ namespace Store.Controller
                 throw new Exception("" + ex);
             }
         }
+
 
         /*public String Update(Components Update, int IdClothing) 
         {
@@ -53,7 +54,7 @@ namespace Store.Controller
 
 
 
-        public void View(DataGridView tableGrid)
+        public void Read(DataGridView tableGrid)
         {
             _DaoProducts.ReadData();
             int f = 0;
@@ -81,10 +82,18 @@ namespace Store.Controller
                 _table.Rows[f].Cells[3].Value = _DaoProducts.Element(i).Gender;
                 _table.Rows[f].Cells[4].Value = _DaoProducts.Element(i).Color;
                 _table.Rows[f].Cells[5].Value = _DaoProducts.Element(i).Size;
-                _table.Rows[f].Cells[6].Value = Convert.ToString(_DaoProducts.Element(i).Value);
+                _table.Rows[f].Cells[6].Value = _DaoProducts.Element(i).Value;
                 _table.Rows[f].Cells[7].Value = _DaoProducts.Element(i).Marca;
 
             }
+        }
+
+        public void Update()
+        { 
+        }
+
+        public void Delet()
+        { 
         }
     }
 }

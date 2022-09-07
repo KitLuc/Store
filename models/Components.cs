@@ -14,7 +14,7 @@ namespace Store.models
         public String Gender { get; set; }
         public String Color { get; set; }
         public Char Size { get; set; }
-        public double Value { get; set; }
+        public String Value { get; set; }
         public String Marca { get; set; }
 
         public Components()
@@ -28,7 +28,7 @@ namespace Store.models
                           String Gender,
                           String Color,
                           Char Size,
-                          double Value,
+                          String Value,
                           String Marca)
         {
             this.IdClothing = IdClothing;

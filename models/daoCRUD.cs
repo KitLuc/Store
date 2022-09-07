@@ -4,25 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using File = System.IO.File;
 
 namespace Store.models
 {
     public class daoCRUD
     {
-        private static FileStream filePath = File.Open(AppDomain.CurrentDomain.BaseDirectory + "SQL.txt", FileMode.Create, FileAccess.ReadWrite);
-        private List<Components> DataBaseComponents = new List<Components>();
-        private static StreamWriter sw = new StreamWriter(filePath);
-        private static StreamReader sr = new StreamReader("SQL.txt");
-        private static String[] ArrayData = null;
+        List<Components> DataBaseComponents = new List<Components>();
+        
 
-        /*        
-
-                
-
-
-
-
+        /*
                 public void Delet(int id)
                 {
                     try
@@ -53,8 +43,11 @@ namespace Store.models
 
 
 
-        protected void WriteData(List<Components> DataListWrite)
+        private void CreateData(List<Components> DataListWrite)
         {
+            StreamWriter sw = new StreamWriter("SQL.txt");
+            FileStream filePath = File.Open(AppDomain.CurrentDomain.BaseDirectory + "productsSQL.txt", FileMode.Create, FileAccess.ReadWrite);
+
             try
             {
                 foreach (Components dtlWrite in DataListWrite)
@@ -67,7 +60,8 @@ namespace Store.models
                                   Convert.ToChar(dtlWrite.Size) + "," +
                                   Convert.ToString(dtlWrite.Value) + "," +
                                   Convert.ToString(dtlWrite.Marca);
-                    sw.WriteLine(text);
+                    sw.WriteLine(text + "\n");
+                    
                 }
             }
             catch (Exception ex)
@@ -86,6 +80,8 @@ namespace Store.models
         {
             DataBaseComponents.Clear();
             Components datasComponent = new Components();
+            StreamReader sr = new StreamReader("productsSQL.txt");
+            String[] ArrayData = null;
 
             try
             {
@@ -98,7 +94,7 @@ namespace Store.models
                     datasComponent.Gender = ArrayData.ElementAt(3);
                     datasComponent.Color = ArrayData.ElementAt(4);
                     datasComponent.Size = Convert.ToChar(ArrayData.ElementAt(5));
-                    datasComponent.Value = Convert.ToDouble(ArrayData.ElementAt(6));
+                    datasComponent.Value = ArrayData.ElementAt(6);
                     datasComponent.Marca = ArrayData.ElementAt(7);
 
                     DataBaseComponents.Add(datasComponent);
@@ -115,11 +111,24 @@ namespace Store.models
             return DataBaseComponents;
         }
 
+        private void UpdateData(int id)
+        { 
+        }
+
+        private void DeletData(int id)
+        { 
+        }
+
+
+
+
         public void Save(Components DataComponents)
         {
             DataBaseComponents.Add(DataComponents);
-            WriteData(DataBaseComponents);
+            CreateData(DataBaseComponents);
         }
+
+
         public int Size()
         {
             return DataBaseComponents.Count();
