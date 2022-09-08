@@ -23,7 +23,7 @@ namespace Store.views
         {
             InitializeComponent();
         }
-
+        
         private void Create_Load(object sender, EventArgs e)
         {
 
@@ -41,7 +41,7 @@ namespace Store.views
                     dtoComponent.DescriptionClothing = textDescript.Text.Trim();
                     dtoComponent.Gender = boxGender.SelectedItem.ToString();
                     dtoComponent.Color = textColor.Text.Trim();
-                    dtoComponent.Size = Convert.ToChar(boxSize.SelectedItem.ToString());
+                    dtoComponent.Size =  Convert.ToChar(boxSize.SelectedItem.ToString());
                     dtoComponent.Value = textPrice.Text.Trim();
                     dtoComponent.Marca = textMarca.Text.Trim();
                     ctProduct.Create(dtoComponent);
@@ -51,7 +51,7 @@ namespace Store.views
                     throw new Exception("" + ex);
                 }
             }
-
+            
             textId.Clear();
             textName.Clear();
             textDescript.Clear();
@@ -61,16 +61,6 @@ namespace Store.views
             boxGender.SelectedIndex = 0;
             boxSize.SelectedIndex = 0;
         }
-
-        private bool AuthComponents() 
-        {
-            return !(textId.Text.Trim() == "" || textName.Text.Trim() == "" || textDescript.Text.Trim() == "" || boxGender.SelectedItem.ToString() == "" || textColor.Text.Trim() == "" || boxSize.SelectedItem.ToString() == "" || textPrice.Text.Trim() == "" || textMarca.Text.Trim() == "");
-        }
-
-
-
-
-
 
         private void btn_create_Click(object sender, EventArgs e)
         {
@@ -99,6 +89,13 @@ namespace Store.views
         private void logo_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+        // Auth Components
+        private bool AuthComponents()
+        {
+            return !(textId.Text.Trim() == "" || textName.Text.Trim() == "" || textDescript.Text.Trim() == "" || boxGender.SelectedIndex.ToString() == "" || textColor.Text.Trim() == "" || boxSize.SelectedIndex.ToString() == "" || textPrice.Text.Trim() == "" || textMarca.Text.Trim() == "");
         }
     }
 }

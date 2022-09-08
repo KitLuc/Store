@@ -6,9 +6,8 @@ using System.Windows.Forms;
 
 namespace Store
 {
-    internal static class Program
+    public class Program
     {
-
         static void Main()
         {
             Application.EnableVisualStyles();

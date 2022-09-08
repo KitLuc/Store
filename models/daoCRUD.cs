@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
 
 namespace Store.models
 {
@@ -43,51 +43,49 @@ namespace Store.models
 
 
 
-        private void CreateData(List<Components> DataListWrite)
+        private void CreateData(List<Components> ComponentsWrite)
         {
-            StreamWriter sw = new StreamWriter("SQL.txt");
-            FileStream filePath = File.Open(AppDomain.CurrentDomain.BaseDirectory + "productsSQL.txt", FileMode.Create, FileAccess.ReadWrite);
-
+            FileStream filePath = File.Open(AppDomain.CurrentDomain.BaseDirectory + "\\productsSQL.txt", FileMode.Create, FileAccess.ReadWrite);
+            StreamWriter sw = new StreamWriter(filePath);
+            
             try
             {
-                foreach (Components dtlWrite in DataListWrite)
+                foreach (Components fileWrite in ComponentsWrite)
                 {
-                    String text = Convert.ToInt16(dtlWrite.IdClothing) + "," +
-                                  Convert.ToString(dtlWrite.NameClothing) + "," +
-                                  Convert.ToString(dtlWrite.DescriptionClothing) + "," +
-                                  Convert.ToString(dtlWrite.Gender) + "," +
-                                  Convert.ToString(dtlWrite.Color) + "," +
-                                  Convert.ToChar(dtlWrite.Size) + "," +
-                                  Convert.ToString(dtlWrite.Value) + "," +
-                                  Convert.ToString(dtlWrite.Marca);
-                    sw.WriteLine(text + "\n");
-                    
+                    String textString = 
+                        Convert.ToInt16(fileWrite.IdClothing) + "|" +
+                        Convert.ToString(fileWrite.NameClothing) + "|" +
+                        Convert.ToString(fileWrite.DescriptionClothing) + "|" +
+                        Convert.ToString(fileWrite.Gender) + "|" +
+                        Convert.ToString(fileWrite.Color) + "|" +
+                        Convert.ToChar(fileWrite.Size) + "|" +
+                        Convert.ToString(fileWrite.Value) + "|" +
+                        Convert.ToString(fileWrite.Marca);
+                    sw.WriteLine(textString);
                 }
+                
+                sw.Close();
+                filePath.Close();
             }
             catch (Exception ex)
             {
                 throw new Exception("" + ex);
-            }
-            finally
-            {
-                sw.Close();
-                filePath.Close();
             }
         }
 
 
         public List<Components> ReadData()
         {
+            StreamReader sr = new StreamReader("productsSQL.txt");
             DataBaseComponents.Clear();
             Components datasComponent = new Components();
-            StreamReader sr = new StreamReader("productsSQL.txt");
             String[] ArrayData = null;
-
+            
             try
             {
                 while (!sr.EndOfStream)
                 {
-                    ArrayData = sr.ReadLine().Split(',');
+                    ArrayData = sr.ReadLine().Split('|');
                     datasComponent.IdClothing = Convert.ToInt16(ArrayData.ElementAt(0));
                     datasComponent.NameClothing = ArrayData.ElementAt(1);
                     datasComponent.DescriptionClothing = ArrayData.ElementAt(2);
@@ -96,17 +94,14 @@ namespace Store.models
                     datasComponent.Size = Convert.ToChar(ArrayData.ElementAt(5));
                     datasComponent.Value = ArrayData.ElementAt(6);
                     datasComponent.Marca = ArrayData.ElementAt(7);
-
+                    
                     DataBaseComponents.Add(datasComponent);
                 }
+                sr.Close();
             }
             catch (EndOfStreamException ex)
             {
                 throw new Exception("Error tipo: " + ex);
-            }
-            finally
-            {
-                sr.Close();
             }
             return DataBaseComponents;
         }
@@ -120,14 +115,11 @@ namespace Store.models
         }
 
 
-
-
-        public void Save(Components DataComponents)
+        public void Save(Components CompSave)
         {
-            DataBaseComponents.Add(DataComponents);
+            DataBaseComponents.Add(CompSave);
             CreateData(DataBaseComponents);
         }
-
 
         public int Size()
         {

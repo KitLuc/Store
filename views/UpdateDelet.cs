@@ -41,5 +41,10 @@ namespace Store.views
             upD.ShowDialog();
             this.Show();
         }
+
+        private void kryptonPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
