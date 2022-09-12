@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Store.models
 {
@@ -17,10 +13,8 @@ namespace Store.models
         public String Value { get; set; }
         public String Marca { get; set; }
 
-        public Components()
-        {
-
-        }
+        
+        public Components(){}
 
         public Components(int IdClothing,
                           String NameClothing,
@@ -29,7 +23,8 @@ namespace Store.models
                           String Color,
                           Char Size,
                           String Value,
-                          String Marca)
+                          String Marca
+                        )
         {
             this.IdClothing = IdClothing;
             this.NameClothing = NameClothing;

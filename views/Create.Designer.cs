@@ -65,12 +65,27 @@
             // 
             this.PaletCreate.BasePaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Global;
             this.PaletCreate.ButtonSpecs.FormClose.Image = global::Store.Properties.Resources.background_close;
+            this.PaletCreate.ButtonSpecs.FormClose.ImageStates.ImageCheckedNormal = global::Store.Properties.Resources.backgorund_icon_close;
+            this.PaletCreate.ButtonSpecs.FormClose.ImageStates.ImageCheckedPressed = global::Store.Properties.Resources.backgorund_icon_close;
+            this.PaletCreate.ButtonSpecs.FormClose.ImageStates.ImageCheckedTracking = global::Store.Properties.Resources.backgorund_icon_close;
+            this.PaletCreate.ButtonSpecs.FormClose.ImageStates.ImageDisabled = global::Store.Properties.Resources.backgorund_icon_close;
+            this.PaletCreate.ButtonSpecs.FormClose.ImageStates.ImageNormal = global::Store.Properties.Resources.background_close;
             this.PaletCreate.ButtonSpecs.FormClose.ImageStates.ImagePressed = global::Store.Properties.Resources.backgorund_icon_close;
             this.PaletCreate.ButtonSpecs.FormClose.ImageStates.ImageTracking = global::Store.Properties.Resources.backgorund_icon_close;
             this.PaletCreate.ButtonSpecs.FormMax.Image = global::Store.Properties.Resources.background_maximize;
+            this.PaletCreate.ButtonSpecs.FormMax.ImageStates.ImageCheckedNormal = global::Store.Properties.Resources.background_maximize;
+            this.PaletCreate.ButtonSpecs.FormMax.ImageStates.ImageCheckedPressed = global::Store.Properties.Resources.background_maximize;
+            this.PaletCreate.ButtonSpecs.FormMax.ImageStates.ImageCheckedTracking = global::Store.Properties.Resources.background_maximize;
+            this.PaletCreate.ButtonSpecs.FormMax.ImageStates.ImageDisabled = global::Store.Properties.Resources.background_maximize;
+            this.PaletCreate.ButtonSpecs.FormMax.ImageStates.ImageNormal = global::Store.Properties.Resources.background_maximize;
             this.PaletCreate.ButtonSpecs.FormMax.ImageStates.ImagePressed = global::Store.Properties.Resources.background_maximize;
             this.PaletCreate.ButtonSpecs.FormMax.ImageStates.ImageTracking = global::Store.Properties.Resources.background_maximize;
             this.PaletCreate.ButtonSpecs.FormMin.Image = global::Store.Properties.Resources.backgorund_minimize;
+            this.PaletCreate.ButtonSpecs.FormMin.ImageStates.ImageCheckedNormal = global::Store.Properties.Resources.backgorund_minimize;
+            this.PaletCreate.ButtonSpecs.FormMin.ImageStates.ImageCheckedPressed = global::Store.Properties.Resources.backgorund_minimize;
+            this.PaletCreate.ButtonSpecs.FormMin.ImageStates.ImageCheckedTracking = global::Store.Properties.Resources.backgorund_minimize;
+            this.PaletCreate.ButtonSpecs.FormMin.ImageStates.ImageDisabled = global::Store.Properties.Resources.backgorund_minimize;
+            this.PaletCreate.ButtonSpecs.FormMin.ImageStates.ImageNormal = global::Store.Properties.Resources.backgorund_minimize;
             this.PaletCreate.ButtonSpecs.FormMin.ImageStates.ImagePressed = global::Store.Properties.Resources.backgorund_minimize;
             this.PaletCreate.ButtonSpecs.FormMin.ImageStates.ImageTracking = global::Store.Properties.Resources.backgorund_minimize;
             this.PaletCreate.ButtonStyles.ButtonForm.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
@@ -78,6 +93,20 @@
             this.PaletCreate.ButtonStyles.ButtonForm.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.PaletCreate.ButtonStyles.ButtonForm.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.PaletCreate.ButtonStyles.ButtonForm.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.PaletCreate.ButtonStyles.ButtonForm.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.PaletCreate.ButtonStyles.ButtonForm.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.PaletCreate.ButtonStyles.ButtonForm.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.PaletCreate.ButtonStyles.ButtonForm.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.PaletCreate.ButtonStyles.ButtonForm.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.PaletCreate.ButtonStyles.ButtonForm.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.PaletCreate.ButtonStyles.ButtonForm.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.PaletCreate.ButtonStyles.ButtonForm.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.PaletCreate.ButtonStyles.ButtonForm.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.PaletCreate.ButtonStyles.ButtonForm.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.PaletCreate.ButtonStyles.ButtonFormClose.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
@@ -721,7 +750,6 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btn_create.TabIndex = 0;
             this.btn_create.Values.Text = "Crear";
-            this.btn_create.Click += new System.EventHandler(this.btn_create_Click);
             // 
             // btn_listar
             // 

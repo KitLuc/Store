@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ComponentFactory.Krypton.Toolkit;
+using Store.Controller;
+using Store.models;
+using System;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace Store.views
 {
     public partial class UpdateDelet : KryptonForm
     {
+        Product product = new Product();
+
         public UpdateDelet()
         {
             InitializeComponent();
@@ -45,6 +42,64 @@ namespace Store.views
         private void kryptonPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        // btn_delet_Click
+        private void btn_delet_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                product.Delete(Convert.ToInt32(textIdDelet.Text.Trim()));
+                MessageBox.Show("Producto eliminado con exito");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hubo un problema tipo: " + ex);
+            }
+            finally
+            {
+                cleanComponents();
+            }
+        }
+
+        // btn_update_Click with varibale of Clase type Components
+        private void btn_update_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Components dtoComponent = new Components();
+                dtoComponent.IdClothing = Convert.ToInt32(textIdDelet.Text);
+                dtoComponent.NameClothing = textName.Text.Trim();
+                dtoComponent.DescriptionClothing = textDescript.Text.Trim();
+                dtoComponent.Gender = boxGender.SelectedItem.ToString();
+                dtoComponent.Color = textColor.Text.ToString();
+                dtoComponent.Size = Convert.ToChar(boxSize.SelectedItem.ToString());
+                dtoComponent.Value = textPrice.Text.Trim();
+                dtoComponent.Marca = textMarca.Text.Trim();
+                product.Update(dtoComponent);
+                MessageBox.Show("Producto actualizado con exito");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hubo un problema tipo: " + ex);
+            }
+            finally
+            {
+                cleanComponents();
+            }
+        }
+
+        private void cleanComponents()
+        {
+            textId.Clear();
+            textIdDelet.Clear();
+            textName.Clear();
+            textDescript.Clear();
+            textColor.Clear();
+            textPrice.Clear();
+            textMarca.Clear();
+            boxGender.SelectedIndex = 0;
+            boxSize.SelectedIndex = 0;
         }
     }
 }

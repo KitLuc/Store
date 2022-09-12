@@ -1,17 +1,8 @@
 ﻿using ComponentFactory.Krypton.Toolkit;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.IO;
 using Store.Controller;
 using Store.models;
-
+using System;
+using System.Windows.Forms;
 
 namespace Store.views
 {
@@ -23,67 +14,70 @@ namespace Store.views
         {
             InitializeComponent();
         }
-        
+
         private void Create_Load(object sender, EventArgs e)
         {
 
         }
 
+        // btn_Save_Click
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            if (AuthComponents())
+            try
             {
-                Components dtoComponent = new Components();
-                try
+                // if authcomponents
+                if (authComponents())
                 {
-                    dtoComponent.IdClothing = Convert.ToInt16(textId.Text.Trim());
+                    Components dtoComponent = new Components();
+                    dtoComponent.IdClothing = Convert.ToInt32(textId.Text);
                     dtoComponent.NameClothing = textName.Text.Trim();
                     dtoComponent.DescriptionClothing = textDescript.Text.Trim();
                     dtoComponent.Gender = boxGender.SelectedItem.ToString();
-                    dtoComponent.Color = textColor.Text.Trim();
+                    dtoComponent.Color = textColor.Text.ToString();
                     dtoComponent.Size =  Convert.ToChar(boxSize.SelectedItem.ToString());
                     dtoComponent.Value = textPrice.Text.Trim();
                     dtoComponent.Marca = textMarca.Text.Trim();
+                    
                     ctProduct.Create(dtoComponent);
+                    MessageBox.Show("Producto creado con exito");
                 }
-                catch (Exception ex)
+                else
                 {
-                    throw new Exception("" + ex);
+                    MessageBox.Show("Faltan datos por llenar");
                 }
             }
-            
-            textId.Clear();
-            textName.Clear();
-            textDescript.Clear();
-            textColor.Clear();
-            textPrice.Clear();
-            textMarca.Clear();
-            boxGender.SelectedIndex = 0;
-            boxSize.SelectedIndex = 0;
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hubo un problema tipo: " + ex);
+            }
+            finally
+            {
+                cleanComponents();
+            }
         }
 
-        private void btn_create_Click(object sender, EventArgs e)
+        // Open Form Create
+        private void btn_Create_Click(object sender, EventArgs e)
         {
+            Create create = new Create();
+            create.Show();
             this.Hide();
-            Store.views.Create create = new Store.views.Create();
-            create.ShowDialog();
-            this.Show();
         }
 
+        // Open Form List
         private void btn_listar_Click(object sender, EventArgs e)
         {
+            List list = new List();
+            list.Show();
             this.Hide();
-            Store.views.List list = new Store.views.List();
-            list.ShowDialog();
-            this.Show();
         }
 
+        // Open Form Update
         private void btn_update_delet_Click(object sender, EventArgs e)
         {
+            UpdateDelet update = new UpdateDelet();
+            update.Show();
             this.Hide();
-            Store.views.UpdateDelet upD = new Store.views.UpdateDelet();
-            upD.ShowDialog();
-            this.Show();
         }
 
         private void logo_Click(object sender, EventArgs e)
@@ -92,10 +86,31 @@ namespace Store.views
         }
 
 
-        // Auth Components
-        private bool AuthComponents()
+        // auth Components
+        private bool authComponents()
         {
-            return !(textId.Text.Trim() == "" || textName.Text.Trim() == "" || textDescript.Text.Trim() == "" || boxGender.SelectedIndex.ToString() == "" || textColor.Text.Trim() == "" || boxSize.SelectedIndex.ToString() == "" || textPrice.Text.Trim() == "" || textMarca.Text.Trim() == "");
+            return !(textId.Text.Trim() == "" || 
+                     textName.Text.Trim() == "" || 
+                     textDescript.Text.Trim() == "" ||
+                     textColor.Text.Trim() == "" ||
+                     textPrice.Text.Trim() == "" || 
+                     textMarca.Text.Trim() == "" ||
+                     boxGender.SelectedIndex.ToString() == "" ||
+                     boxSize.SelectedIndex.ToString() == ""
+                    );
+        }
+
+        // Clean Components
+        private void cleanComponents()
+        {
+            textId.Clear();
+            textName.Clear();
+            textDescript.Clear();
+            textColor.Clear();
+            textPrice.Clear();
+            textMarca.Clear();
+            boxGender.SelectedIndex = 0;
+            boxSize.SelectedIndex = 0;
         }
     }
 }
