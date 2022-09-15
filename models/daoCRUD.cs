@@ -14,7 +14,7 @@ namespace Store.models
         private void CreateDataBase(List<Components> ComponentsWrite)
         {
             // Write data to file
-            using (FileStream filePath = new FileStream("productsSQL.txt", FileMode.Create))
+            using (FileStream filePath = new FileStream(AppDomain.CurrentDomain.BaseDirectory + "\\productsSQL.txt", FileMode.Create, FileAccess.Write))
             {
                 using (StreamWriter sw = new StreamWriter(filePath))
                 {
@@ -89,25 +89,18 @@ namespace Store.models
         }
 
 
-        private void UpdateDataBase(Components newComponent)
+        private void UpdateDataBase(Components newComponent, int id)
         {
             // UpdateDataBase(new Components(1, "Camisa", "Camisa de algodon", "M", "Azul", 'M', 10000, "Nike"));
-            ReadDataBase();
-            Components oldComponent = DataBaseComponents.Find(x => x.IdClothing == newComponent.IdClothing);
-            oldComponent.NameClothing = newComponent.NameClothing;
-            oldComponent.DescriptionClothing = newComponent.DescriptionClothing;
-            oldComponent.Gender = newComponent.Gender;
-            oldComponent.Color = newComponent.Color;
-            oldComponent.Size = newComponent.Size;
-            oldComponent.Value = newComponent.Value;
-            oldComponent.Marca = newComponent.Marca;
+            DataBaseComponents.Clear();
+            DeleteDataBase(id);
+            DataBaseComponents.Add(newComponent);
             CreateDataBase(DataBaseComponents);
         }
 
         // DeleteDataBase id
         private void DeleteDataBase(int id)
         {
-            ReadDataBase();
             Components oldComponent = DataBaseComponents.Find(x => x.IdClothing == Convert.ToInt16(id));
             DataBaseComponents.Remove(oldComponent);
             CreateDataBase(DataBaseComponents);
@@ -120,7 +113,7 @@ namespace Store.models
 
         public void Create(Components newComponent) => CreateDataBase(new List<Components> { newComponent });
         public List<Components> Read() => ReadDataBase();
-        public void Update(Components newComponent) => UpdateDataBase(newComponent);
+        public void Update(Components newComponent, int id) => UpdateDataBase(newComponent, id);
         public void Delete(int id) => DeleteDataBase(id);
 
         // References

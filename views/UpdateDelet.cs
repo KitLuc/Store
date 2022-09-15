@@ -68,7 +68,7 @@ namespace Store.views
             try
             {
                 Components dtoComponent = new Components();
-                dtoComponent.IdClothing = Convert.ToInt32(textIdDelet.Text);
+                dtoComponent.IdClothing = Convert.ToInt32(textId.Text.Trim());
                 dtoComponent.NameClothing = textName.Text.Trim();
                 dtoComponent.DescriptionClothing = textDescript.Text.Trim();
                 dtoComponent.Gender = boxGender.SelectedItem.ToString();
@@ -76,7 +76,7 @@ namespace Store.views
                 dtoComponent.Size = Convert.ToChar(boxSize.SelectedItem.ToString());
                 dtoComponent.Value = textPrice.Text.Trim();
                 dtoComponent.Marca = textMarca.Text.Trim();
-                product.Update(dtoComponent);
+                product.Update(dtoComponent, Convert.ToInt16(textId.Text.Trim()));
                 MessageBox.Show("Producto actualizado con exito");
             }
             catch (Exception ex)

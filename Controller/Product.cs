@@ -65,11 +65,11 @@ namespace Store.Controller
         }
 
         // Update
-        public void Update(Components ProductUpdate)
+        public void Update(Components ProductUpdate, int id)
         {
             try
             {
-                _DaoProductCRUD.Update(ProductUpdate);
+                _DaoProductCRUD.Update(ProductUpdate, id);
             }
             catch (Exception ex)
             {

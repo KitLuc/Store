@@ -53,11 +53,6 @@
             // 
             this.PaletHome.BasePaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Global;
             this.PaletHome.ButtonSpecs.FormClose.Image = global::Store.Properties.Resources.background_close;
-            this.PaletHome.ButtonSpecs.FormClose.ImageStates.ImageCheckedNormal = global::Store.Properties.Resources.backgorund_icon_close;
-            this.PaletHome.ButtonSpecs.FormClose.ImageStates.ImageCheckedPressed = global::Store.Properties.Resources.backgorund_icon_close;
-            this.PaletHome.ButtonSpecs.FormClose.ImageStates.ImageCheckedTracking = global::Store.Properties.Resources.backgorund_icon_close;
-            this.PaletHome.ButtonSpecs.FormClose.ImageStates.ImageDisabled = global::Store.Properties.Resources.backgorund_icon_close;
-            this.PaletHome.ButtonSpecs.FormClose.ImageStates.ImageNormal = global::Store.Properties.Resources.backgorund_icon_close;
             this.PaletHome.ButtonSpecs.FormClose.ImageStates.ImagePressed = global::Store.Properties.Resources.backgorund_icon_close;
             this.PaletHome.ButtonSpecs.FormClose.ImageStates.ImageTracking = global::Store.Properties.Resources.backgorund_icon_close;
             this.PaletHome.ButtonSpecs.FormMax.Image = global::Store.Properties.Resources.background_maximize;
